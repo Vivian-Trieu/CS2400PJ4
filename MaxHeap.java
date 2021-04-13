@@ -114,7 +114,21 @@ public final class MaxHeap<T extends Comparable<? super T>>
         lastIndex = 0;
     } // end clear
    
-    /** Old reheap method
+    public static <T extends Comparable<? super T>> void heapSort(T[] array, int n)
+    {
+        // Create first heap
+        for (int rootIndex = n / 2 - 1; rootIndex >= 0; rootIndex--)
+            reheap(array, rootIndex, n - 1);
+
+        swap(array, 0, n - 1);
+
+        for (int lastIndex = n - 2; lastIndex > 0; lastIndex--)
+        {
+            reheap(array, 0, lastIndex);
+            swap(array, 0, lastIndex);
+        } // end for
+} // end heapSort
+
     // Precondition: checkIntegrity has been called.
     private void reheap(int rootIndex)
     {
@@ -145,11 +159,9 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
         heap[rootIndex] = orphan;
     } // end reheap
-    */
 
     // Revised reheap method
-    private static <T extends Comparable<? super T>>
-        void reheap(T[] heap, int rootIndex, int lastIndex)
+    private static <T extends Comparable<? super T>> void reheap(T[] heap, int rootIndex, int lastIndex)
     {
         boolean done = false;
         T orphan = heap[rootIndex];
@@ -178,4 +190,36 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
         heap[rootIndex] = orphan;
     } // end reheap
+    
+    private void ensureCapacity()
+    {
+        if(lastIndex >= heap.length)
+        {
+            int newCapacity = 2 * heap.length;
+            checkCapacity(newCapacity);
+            heap = Arrays.copyOf(heap, newCapacity);
+        }
+    }
+
+    private void checkIntegrity()
+    {
+        if (!integrityOK)
+        {
+            throw new SecurityException ("MaxHeap object is not initialized.");
+        }
+    }
+
+    private void checkCapacity(int initialCapacity) 
+    {
+        if (initialCapacity < DEFAULT_CAPACITY)
+        {
+            initialCapacity = DEFAULT_CAPACITY;
+        }
+        else if (initialCapacity > MAX_CAPACITY)
+        {
+            throw new IllegalStateException("Attempt to create a heap " +
+                                            "whose capacity is larger than " +
+                                            MAX_CAPACITY);
+        }
+    }
 } // end MaxHeap
