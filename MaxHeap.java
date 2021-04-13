@@ -36,6 +36,21 @@ public final class MaxHeap<T extends Comparable<? super T>>
         integrityOK = true;
     } // end constructor
 
+    public MaxHeap(T[] entries)
+    {
+        this(entries.length); // Call other constructor
+        lastIndex = entries.length;
+        // Assertion: integrityOK = true
+
+        // Copy given array to data field
+        for (int index = 0; index < entries.length; index++)
+            heap[index + 1] = entries[index];
+
+        // Create heap
+        for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
+            reheap(rootIndex);
+    } // end constructor
+
     public void add(T newEntry)
     {
         checkIntegrity();        // Ensure initialization of data fields
@@ -55,7 +70,18 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
     public T removeMax()
     {
-    // See Segment 27.12. 
+        checkIntegrity();             // Ensure initialization of data fields
+        T root = null;
+     
+        if (!isEmpty())
+        {
+           root = heap[1];            // Return value
+           heap[1] = heap[lastIndex]; // Form a semiheap
+           lastIndex--;               // Decrease size
+           reheap(1);                 // Transform to a heap
+        } // end if
+     
+        return root; 
     } // end removeMax
 
     public T getMax()
