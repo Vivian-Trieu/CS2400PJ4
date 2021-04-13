@@ -127,7 +127,14 @@ public final class MaxHeap<T extends Comparable<? super T>>
             reheap(array, 0, lastIndex);
             swap(array, 0, lastIndex);
         } // end for
-} // end heapSort
+    } // end heapSort
+
+    private static <T> void swap(T[] array, int i, int j) 
+    {
+        T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 
     // Precondition: checkIntegrity has been called.
     private void reheap(int rootIndex)
