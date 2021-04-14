@@ -1,2 +1,2 @@
 # CS2400PJ4
-@author Vivian Trieu
+@author Samuel Chih, Vivian Trieu
