@@ -1,7 +1,6 @@
 import java.util.Arrays;
 /**
     A class that implements the ADT maxheap by using an array.
- 
     @author Frank M. Carrano
     @author Timothy M. Henry
     @version 5.0
@@ -12,8 +11,8 @@ public final class MaxHeap<T extends Comparable<? super T>>
     private T[] heap;      // Array of heap entries; ignore heap[0]
     private int lastIndex; // Index of last entry and number of entries
     private boolean integrityOK = false;
-	    private static final int DEFAULT_CAPACITY = 25;
-	    private static final int MAX_CAPACITY = 10000;
+	private static final int DEFAULT_CAPACITY = 25;
+	private static final int MAX_CAPACITY = 10000;
    
     public MaxHeap()
     {
@@ -56,13 +55,14 @@ public final class MaxHeap<T extends Comparable<? super T>>
         checkIntegrity();        // Ensure initialization of data fields
         int newIndex = lastIndex + 1;
         int parentIndex = newIndex / 2;
+        ensureCapacity();
         while ( (parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0)
         {
+            System.out.println(newIndex);
             heap[newIndex] = heap[parentIndex];
             newIndex = parentIndex;
             parentIndex = newIndex / 2;
         } // end while
-     
         heap[newIndex] = newEntry;
         lastIndex++;
         ensureCapacity();
@@ -200,7 +200,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
     
     private void ensureCapacity()
     {
-        if(lastIndex >= heap.length)
+        if(lastIndex-1 >= heap.length)
         {
             int newCapacity = 2 * heap.length;
             checkCapacity(newCapacity);
@@ -229,4 +229,10 @@ public final class MaxHeap<T extends Comparable<? super T>>
                                             MAX_CAPACITY);
         }
     }
+
+    private void heapSort(){
+        ensureCapacity();
+    
+    }
+    
 } // end MaxHeap
