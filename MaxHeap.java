@@ -55,10 +55,8 @@ public final class MaxHeap<T extends Comparable<? super T>>
         checkIntegrity();        // Ensure initialization of data fields
         int newIndex = lastIndex + 1;
         int parentIndex = newIndex / 2;
-        ensureCapacity();
         while ( (parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0)
         {
-            System.out.println(newIndex);
             heap[newIndex] = heap[parentIndex];
             newIndex = parentIndex;
             parentIndex = newIndex / 2;
@@ -200,8 +198,10 @@ public final class MaxHeap<T extends Comparable<? super T>>
     
     private void ensureCapacity()
     {
-        if(lastIndex-1 >= heap.length)
+        //System.out.println(lastIndex +" compare "+ heap.length);
+        if(lastIndex+1 >= heap.length)
         {
+            System.out.println("WORking");
             int newCapacity = 2 * heap.length;
             checkCapacity(newCapacity);
             heap = Arrays.copyOf(heap, newCapacity);
