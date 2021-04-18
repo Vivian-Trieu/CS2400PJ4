@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
@@ -19,10 +20,10 @@ public class unitTests {
     // max heap of sorted data using optimal method
     @Test
     public void optimalMethod() throws IOException{
-        try
         {
             ArrayList<Integer> readDataSorted = new ArrayList<Integer>();
-            File file = new File("data_sorted.txt");
+            ClassLoader classLoader = getClass().getClassLoader();
+            File file = new File(classLoader.getResource("data_sorted.txt").getFile());
             Scanner reader = new Scanner(file);
             while (reader.hasNextInt())
             {
@@ -39,10 +40,5 @@ public class unitTests {
             h.printHeap("output.txt");
             reader.close();
         } 
-        catch (IOException e)
-        {
-            System.out.println("Error while reading");
-        }
-
     }
 }
