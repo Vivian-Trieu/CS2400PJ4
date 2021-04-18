@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 /**
     A class that implements the ADT maxheap by using an array.
@@ -13,6 +16,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
     private boolean integrityOK = false;
 	private static final int DEFAULT_CAPACITY = 25;
 	private static final int MAX_CAPACITY = 10000;
+    int numberofswaps = 0;
    
     public MaxHeap()
     {
@@ -127,6 +131,23 @@ public final class MaxHeap<T extends Comparable<? super T>>
         } // end for
     } // end heapSort
 
+    // method to print max-heap elements into output file
+    public void printHeap(String filename)
+    {
+        try {
+            File file = new File(filename);
+
+            FileWriter writer = new FileWriter(file);
+            for (int i = 0; i < this.heap.length; i++)
+                writer.write(this.heap[i] + "\n");
+                writer.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error while writing");
+        }
+    }
+
     private static <T> void swap(T[] array, int i, int j) 
     {
         T temp = array[i];
@@ -140,6 +161,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
         boolean done = false;
         T orphan = heap[rootIndex];
         int leftChildIndex = 2 * rootIndex;
+        numberofswaps++;
 
         while (!done && (leftChildIndex <= lastIndex) )
         {
@@ -228,11 +250,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
                                             "whose capacity is larger than " +
                                             MAX_CAPACITY);
         }
-    }
-
-    private void heapSort(){
-        ensureCapacity();
-    
     }
     
 } // end MaxHeap
