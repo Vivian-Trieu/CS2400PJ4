@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.*;
 import java.util.Arrays;
 /**
     A class that implements the ADT maxheap by using an array.
@@ -100,6 +101,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
         int temp =counter;
         counter =0;
         return temp;
+        //return counter;
     }
     
     public boolean isEmpty()
@@ -260,6 +262,24 @@ public final class MaxHeap<T extends Comparable<? super T>>
         {
             System.out.println("Error while writing");
         }
+    }
+
+    public void writeHeap(String filename, int numofoutput) throws IOException{
+        for (int i = 0; i < numofoutput; i++) {
+            if (heap[i]==null) {
+                continue;
+            }
+        String convert = heap[i].toString()+",";
+        Files.write(Paths.get(filename), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+        }
+    
+/*         for (T t : heap) {
+            if (t==null) {
+                continue;
+            }
+        String convert = t.toString()+" ,";
+        Files.write(Paths.get(filename), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+        } */
     }
     
 } // end MaxHeap

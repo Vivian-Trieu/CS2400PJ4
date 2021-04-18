@@ -29,6 +29,8 @@ public class unitTests {
             {
                 readDataSorted.add(reader.nextInt());
             }
+
+            
             Integer[] DataSorted_array = new Integer[readDataSorted.size()];
             for (int i = 0; i < readDataSorted.size(); i++)
                 DataSorted_array[i] = readDataSorted.get(i);

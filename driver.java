@@ -12,10 +12,29 @@ public static void main(String[] args) throws IOException {
 
     MaxHeap<Integer> heap = new MaxHeap<>();
     
-    List<Integer> ranint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).collect(Collectors.toList());
+    List<Integer> ranint = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).collect(Collectors.toList());
     ranint.forEach((n)->heap.add(n));
-    ranint.forEach(System.out::println);
-    System.out.println("nosd: "+heap.getSwap());
+
+    Files.write(Paths.get("output.txt"),
+    ("====================================================================="
+    + System.lineSeparator()+"Heap built using sequential insertions: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    heap.writeHeap("output.txt");
+    
+    Files.write(Paths.get("output.txt"),
+    ( System.lineSeparator()+"Number of swaps in the heap creation: "+heap.getSwap()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
+    System.out.println("Swap: "+heap.getSwap());
+
+    for (int i = 0; i < 10; i++)
+        heap.removeMax();
+    Files.write(Paths.get("output.txt"),
+    (System.lineSeparator()+"Heap after 10 removals: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    heap.writeHeap("output.txt");
+    Files.write(Paths.get("output.txt"),
+    ("=====================================================================").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
+    // ranint.forEach(System.out::println);
+    // System.out.println("nosd: "+heap.getSwap());
     
 
 
@@ -60,6 +79,34 @@ public static void main(String[] args) throws IOException {
     // System.out.println("=====================================================================");
     // System.out.println();
 
+
+MaxHeap<Integer> orderheap = new MaxHeap<>();
+Integer[] data = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).toArray(Integer[]::new);
+orderheap.heapSort(data, 10);
+
+
+Integer[] DataSorted_array = new Integer[readDataSorted.size()];
+for (int i = 0; i < readDataSorted.size(); i++)
+    DataSorted_array[i] = readDataSorted.get(i);
+
+System.out.println(DataSorted_array);
+
+
+
+Files.write(Paths.get("output.txt"),
+( System.lineSeparator()+"====================================================================="
++ System.lineSeparator()+"Heap built using sequential insertions: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
+for (Integer integer : data) {
+    // String convert = integer.toString()+",";
+    // Files.write(Paths.get("output.txt"), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    System.out.println(integer);
+}
+
+System.out.println("orderheap: "+ orderheap.getSwap());
+// for (int i = 0; i < 10; i++) {
+//     String convert = data[i].toString()+",";
+// }
 
     }
 }
