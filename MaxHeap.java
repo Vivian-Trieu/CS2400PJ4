@@ -139,7 +139,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
             swap(array, 0, lastIndex);
             counter++;
         } // end for
-        
     } // end heapSort
 
     private static <T> void swap(T[] array, int i, int j) 
@@ -203,10 +202,10 @@ public final class MaxHeap<T extends Comparable<? super T>>
                 heap[rootIndex] = heap[largerChildIndex];
                 rootIndex = largerChildIndex;
                 leftChildIndex = 2 * rootIndex + 1;
-                counter++;
             }
             else
                 done = true;
+            counter++;
         } // end while
 
         heap[rootIndex] = orphan;
@@ -265,21 +264,13 @@ public final class MaxHeap<T extends Comparable<? super T>>
     }
 
     public void writeHeap(String filename, int numofoutput) throws IOException{
-        for (int i = 0; i < numofoutput; i++) {
+        for (int i = 0; i <= numofoutput; i++) {
             if (heap[i]==null) {
                 continue;
             }
         String convert = heap[i].toString()+",";
         Files.write(Paths.get(filename), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
         }
-    
-/*         for (T t : heap) {
-            if (t==null) {
-                continue;
-            }
-        String convert = t.toString()+" ,";
-        Files.write(Paths.get(filename), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
-        } */
     }
     
 } // end MaxHeap

@@ -39,7 +39,7 @@ public static void main(String[] args) throws IOException {
 
 
 
-/*     Integer[] dint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).toArray(Integer[]::new);
+/*  Integer[] dint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).toArray(Integer[]::new);
     heap.heapSort(dint, 100);
     System.out.println("nosd: "+heap.getSwap());
 

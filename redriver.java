@@ -29,26 +29,36 @@ public static void main(String[] args) throws IOException {
     heap.writeHeap("output.txt", 10);
 
 
+    MaxHeap<Integer> optimal = new MaxHeap<>(100);
     Files.write(Paths.get("output.txt"),(System.lineSeparator()+System.lineSeparator()+"Heap built using optimal method: ").getBytes(), StandardOpenOption.APPEND);
 
-    Integer[] data = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).toArray(Integer[]::new);
-    MaxHeap<Integer> optimal = new MaxHeap<>();
-    optimal.heapSort(data, 10);
+    // Integer[] data = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).toArray(Integer[]::new);
+    // optimal.heapSort(data, 10);
+    // data.forEach(System.out::println);
+    // optimal.writeHeap("output.txt", 100);
 
-    for (Integer integer : data) {
-    // String convert = integer.toString()+",";
-    // Files.write(Paths.get("output.txt"), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
-    System.out.println(integer);
+
+    Integer[] dint = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).toArray(Integer[]::new);
+    optimal.heapSort(dint, 10);
+    System.out.println("nos: "+optimal.getSwap());
+
+    for (int i=dint.length; i>=90; i--) {
+        System.out.println(i);
+        // String convert = integer.toString()+",";
+        // Files.write(Paths.get("output.txt"), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
     }
-    
-    optimal.writeHeap("output.txt", 10);
+
 
     Files.write(Paths.get("output.txt"),
     ( System.lineSeparator()+"Number of swaps in the heap creation: "+optimal.getSwap()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
-    //System.out.println("Swap: "+heap.getSwap());
+   
+    for (int i = 0; i < 10; i++)
+        optimal.removeMax();
+    Files.write(Paths.get("output.txt"),
+    (System.lineSeparator()+"Heap after 10 removals: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    optimal.writeHeap("output.txt", 10);
     
-
-
+    
     Files.write(Paths.get("output.txt"), (System.lineSeparator()+"====================================================================="+System.lineSeparator())
     .getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
 
