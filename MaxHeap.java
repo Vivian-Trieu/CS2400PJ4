@@ -61,6 +61,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
             heap[newIndex] = heap[parentIndex];
             newIndex = parentIndex;
             parentIndex = newIndex / 2;
+            counter++;
         } // end while
         heap[newIndex] = newEntry;
         lastIndex++;
@@ -97,6 +98,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
         counter =0;
         return temp;
     }
+    
     public boolean isEmpty()
     {
         return lastIndex < 1;
@@ -123,12 +125,14 @@ public final class MaxHeap<T extends Comparable<? super T>>
         // Create first heap
         for (int rootIndex = n / 2 - 1; rootIndex >= 0; rootIndex--)
             reheap(array, rootIndex, n - 1);
+            counter++;
         swap(array, 0, n - 1);
 
         for (int lastIndex = n - 2; lastIndex > 0; lastIndex--)
         {
             reheap(array, 0, lastIndex);
             swap(array, 0, lastIndex);
+            counter++;
         } // end for
         
     } // end heapSort
@@ -138,10 +142,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
         T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-    }
-
-    private static void revert{
-        
+        counter++;
     }
 
     // Precondition: checkIntegrity has been called.
@@ -150,8 +151,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
         boolean done = false;
         T orphan = heap[rootIndex];
         int leftChildIndex = 2 * rootIndex;
-        
-        
+
         while (!done && (leftChildIndex <= lastIndex) )
         {
             counter++;
@@ -183,11 +183,8 @@ public final class MaxHeap<T extends Comparable<? super T>>
         boolean done = false;
         T orphan = heap[rootIndex];
         int leftChildIndex = 2 * rootIndex + 1;
-        
-
         while (!done && (leftChildIndex <= lastIndex))
         {
-            counter++;
             int largerChildIndex = leftChildIndex;
             int rightChildIndex = leftChildIndex + 1;
             if ( (rightChildIndex <= lastIndex) &&
@@ -201,6 +198,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
                 heap[rootIndex] = heap[largerChildIndex];
                 rootIndex = largerChildIndex;
                 leftChildIndex = 2 * rootIndex + 1;
+                counter++;
             }
             else
                 done = true;
