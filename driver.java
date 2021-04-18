@@ -1,19 +1,45 @@
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.List;
-import java.util.stream.*;
 
 public class driver {
+
 public static void main(String[] args) throws IOException {
     
     // Simpliest, but not the "correct" way to solve the question.
-    // List<Integer> num = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).sorted().collect(Collectors.toList());
-    // num.forEach(System.out::println);
-    
-    List<Integer> ranint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).collect(Collectors.toList());
+    // Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).sorted().forEach(System.out::println);
+
+    //List<Integer> ranint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).collect(Collectors.toList());
     MaxHeap<Integer> heap = new MaxHeap<>();
-    ranint.forEach((n)->heap.add(n));
-    ranint.forEach(System.out::println);
+
+
+    Integer[] dint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).toArray(Integer[]::new);
+    heap.heapSort(dint, 100);
+    System.out.println("nosd: "+heap.getSwap());
+
+    for (Integer integer : dint) {
+        String convert = integer.toString()+",";
+        Files.write(Paths.get("sorted_data_random.txt"), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+        //System.out.println(integer);
+    }
+
+    MaxHeap<Integer> orderheap = new MaxHeap<>();
+    Integer[] data = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).toArray(Integer[]::new);
+    orderheap.heapSort(data, 10);
+    System.out.println("orderheap: "+ orderheap.getSwap());
+
+    Files.write(Paths.get("output.txt"), 
+    ("====================================================================="
+    + System.lineSeparator()+"Heap built using sequential insertions: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
+    
+    for (int i = 0; i < 10; i++) {
+        String convert = data[i].toString()+",";
+
+    }
+    
+
+    //ranint.forEach((n)->heap.add(n));
+    //ranint.forEach(System.out::println);
    
 
 
@@ -23,8 +49,10 @@ public static void main(String[] args) throws IOException {
         stream.forEach(System.out::println);
         //stream.sorted().forEach(System.out::println);
 } */
-    System.out.println("=====================================================================");
-    System.out.println();
+
+
+    // System.out.println("=====================================================================");
+    // System.out.println();
 
 
     }

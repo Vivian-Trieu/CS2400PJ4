@@ -13,6 +13,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
     private boolean integrityOK = false;
 	private static final int DEFAULT_CAPACITY = 25;
 	private static final int MAX_CAPACITY = 10000;
+    private static int counter=0;
    
     public MaxHeap()
     {
@@ -91,6 +92,11 @@ public final class MaxHeap<T extends Comparable<? super T>>
         return root;
     } // end getMax
 
+    public int getSwap() {
+        int temp =counter;
+        counter =0;
+        return temp;
+    }
     public boolean isEmpty()
     {
         return lastIndex < 1;
@@ -117,7 +123,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
         // Create first heap
         for (int rootIndex = n / 2 - 1; rootIndex >= 0; rootIndex--)
             reheap(array, rootIndex, n - 1);
-
         swap(array, 0, n - 1);
 
         for (int lastIndex = n - 2; lastIndex > 0; lastIndex--)
@@ -125,6 +130,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
             reheap(array, 0, lastIndex);
             swap(array, 0, lastIndex);
         } // end for
+        
     } // end heapSort
 
     private static <T> void swap(T[] array, int i, int j) 
@@ -134,15 +140,21 @@ public final class MaxHeap<T extends Comparable<? super T>>
         array[j] = temp;
     }
 
+    private static void revert{
+        
+    }
+
     // Precondition: checkIntegrity has been called.
     private void reheap(int rootIndex)
     {
         boolean done = false;
         T orphan = heap[rootIndex];
         int leftChildIndex = 2 * rootIndex;
-
+        
+        
         while (!done && (leftChildIndex <= lastIndex) )
         {
+            counter++;
             int largerChildIndex = leftChildIndex; // Assume larger
             int rightChildIndex = leftChildIndex + 1;
 
@@ -171,12 +183,13 @@ public final class MaxHeap<T extends Comparable<? super T>>
         boolean done = false;
         T orphan = heap[rootIndex];
         int leftChildIndex = 2 * rootIndex + 1;
+        
 
         while (!done && (leftChildIndex <= lastIndex))
         {
+            counter++;
             int largerChildIndex = leftChildIndex;
             int rightChildIndex = leftChildIndex + 1;
-
             if ( (rightChildIndex <= lastIndex) &&
                 heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
             {
@@ -201,7 +214,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
         //System.out.println(lastIndex +" compare "+ heap.length);
         if(lastIndex+1 >= heap.length)
         {
-            System.out.println("WORking");
             int newCapacity = 2 * heap.length;
             checkCapacity(newCapacity);
             heap = Arrays.copyOf(heap, newCapacity);
@@ -228,11 +240,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
                                             "whose capacity is larger than " +
                                             MAX_CAPACITY);
         }
-    }
-
-    private void heapSort(){
-        ensureCapacity();
-    
     }
     
 } // end MaxHeap
