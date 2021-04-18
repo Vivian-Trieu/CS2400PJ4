@@ -13,23 +13,12 @@ public class unitTests {
     @Test
     public void seqInsertions() throws FileNotFoundException{
         
-        /*
-        ArrayList<Integer> data = new ArrayList<>();
-        try (Scanner sc = new Scanner(new FileReader("data_sorted.txt"))) {
-        while(sc.hasNext());
-            data.add(sc.nextInt());
-        }
-        Integer[] sortedData_array = data.toArray(new Integer[]{});
-
-        MaxHeap<Integer> heap1 = new MaxHeap<>();
         
-
-        System.out.println("Heap built using sequential insertions: "); */
     }
     
     // max heap of sorted data using optimal method
     @Test
-    public void optimalMethod(){
+    public void optimalMethod() throws IOException{
         try
         {
             ArrayList<Integer> readDataSorted = new ArrayList<Integer>();
