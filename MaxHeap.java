@@ -139,6 +139,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
             swap(array, 0, lastIndex);
             counter++;
         } // end for
+        final T[]tep=array;
     } // end heapSort
 
     private static <T> void swap(T[] array, int i, int j) 
@@ -177,7 +178,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
             else
                 done = true;
         } // end while
-
         heap[rootIndex] = orphan;
     } // end reheap
 
@@ -207,7 +207,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
                 done = true;
             counter++;
         } // end while
-
         heap[rootIndex] = orphan;
     } // end reheap
     
