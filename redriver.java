@@ -3,11 +3,12 @@ import java.nio.file.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class redriver {
+public class redriver extends MaxHeap<String> {
 public static void main(String[] args) throws IOException {
     // Simpliest, but not the "correct" way to solve the question.
     // Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).sorted().forEach(System.out::println);
 
+    // max heap of sorted data using sequential insertions
     MaxHeap<Integer> heap = new MaxHeap<>();
     
     List<Integer> ranint = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).collect(Collectors.toList());
@@ -28,7 +29,7 @@ public static void main(String[] args) throws IOException {
     (System.lineSeparator()+"Heap after 10 removals: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
     heap.writeHeap("output.txt", 10);
 
-
+    // max heap of sorted data using optimal method
     MaxHeap<Integer> optimal = new MaxHeap<>(100);
     Files.write(Paths.get("output.txt"),(System.lineSeparator()+System.lineSeparator()+"Heap built using optimal method: ").getBytes(), StandardOpenOption.APPEND);
 
@@ -62,6 +63,27 @@ public static void main(String[] args) throws IOException {
     Files.write(Paths.get("output.txt"), (System.lineSeparator()+"====================================================================="+System.lineSeparator())
     .getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
 
+     // max heap of randomized data using sequential insertions
+     MaxHeap<Integer> heap2 = new MaxHeap<>();
+    
+     List<Integer> randomizedData = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).collect(Collectors.toList());
+     randomizedData.forEach((n)->heap2.add(n));
+ 
+     Files.write(Paths.get("output.txt"),
+     ("====================================================================="
+     + System.lineSeparator()+"Heap built using sequential insertions: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+     heap2.writeHeap("output.txt", 10);
+     
+     Files.write(Paths.get("output.txt"),
+     ( System.lineSeparator()+"Number of swaps in the heap creation: "+heap2.getSwap()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    // System.out.println("Swap: "+heap.getSwap());
+ 
+     for (int i = 0; i < 10; i++)
+         heap2.removeMax();
+     Files.write(Paths.get("output.txt"),
+     (System.lineSeparator()+"Heap after 10 removals: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+     heap2.writeHeap("output.txt", 10);
+ 
     }
 }
 
