@@ -1,0 +1,177 @@
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 183
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 184
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 192
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 41
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 32
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 18
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 169
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 192
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 18
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 236
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 90
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 90
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 85,2,11,77,93,98,61,68,76,84,
+
+Heap built using optimal method: 100,95,1,79,2,3,63,71,4,87,
+Number of swaps in the heap creation: 58
+Heap after 10 removals: 46,45,1,79,2,3,63,71,4,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 90
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 90,89,62,77,88,53,61,68,76,84,
+
+Heap built using optimal method: 100,95,99,79,94,98,63,71,78,87,
+Number of swaps in the heap creation: 241
+Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 85,2,11,77,93,98,61,68,76,84,
+
+Heap built using optimal method: 100,95,1,79,2,3,63,71,4,87,
+Number of swaps in the heap creation: 58
+Heap after 10 removals: 46,45,1,79,2,3,63,71,4,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 85,2,11,77,93,98,61,68,76,84,
+
+Heap built using optimal method: 100,95,1,79,2,3,63,71,4,87,
+Number of swaps in the heap creation: 58
+Heap after 10 removals: 46,45,1,79,2,3,63,71,4,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 85,2,11,77,93,98,61,68,76,84,
+
+Heap built using optimal method: 100,95,1,79,2,3,63,71,4,87,
+Number of swaps in the heap creation: 58
+Heap after 10 removals: 46,45,1,79,2,3,63,71,4,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 85,2,11,77,93,98,61,68,76,84,
+
+Heap built using optimal method: 100,95,1,79,2,3,63,71,4,87,
+Number of swaps in the heap creation: 58
+Heap after 10 removals: 46,45,1,79,2,3,63,71,4,87,
+=====================================================================
+=====================================================================
+Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,
+Number of swaps in the heap creation: 480
+Heap after 10 removals: 85,2,11,77,93,98,61,68,76,84,
+
+Heap built using optimal method: 100,95,1,79,2,3,63,71,4,87,

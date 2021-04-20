@@ -27,8 +27,6 @@ public class unitTests {
             i++;
         }
         scanner.close();
-
-        
     }
     
     public static void optimalMethod()

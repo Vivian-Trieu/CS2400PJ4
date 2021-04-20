@@ -9,6 +9,7 @@ import java.util.Arrays;
     @author Timothy M. Henry
     @version 5.0
 */
+import java.util.concurrent.PriorityBlockingQueue;
 public final class MaxHeap<T extends Comparable<? super T>>
             implements MaxHeapInterface<T>
 {
@@ -130,16 +131,15 @@ public final class MaxHeap<T extends Comparable<? super T>>
         // Create first heap
         for (int rootIndex = n / 2 - 1; rootIndex >= 0; rootIndex--)
             reheap(array, rootIndex, n - 1);
-            counter++;
+            //counter++;
         swap(array, 0, n - 1);
 
         for (int lastIndex = n - 2; lastIndex > 0; lastIndex--)
         {
             reheap(array, 0, lastIndex);
             swap(array, 0, lastIndex);
-            counter++;
+            //counter++;
         } // end for
-        final T[]tep=array;
     } // end heapSort
 
     private static <T> void swap(T[] array, int i, int j) 
@@ -147,7 +147,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
         T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-        counter++;
+        //counter++; //9
     }
 
     // Precondition: checkIntegrity has been called.
@@ -156,27 +156,30 @@ public final class MaxHeap<T extends Comparable<? super T>>
         boolean done = false;
         T orphan = heap[rootIndex];
         int leftChildIndex = 2 * rootIndex;
-
         while (!done && (leftChildIndex <= lastIndex) )
         {
-            counter++;
+            //counter++; //151
             int largerChildIndex = leftChildIndex; // Assume larger
             int rightChildIndex = leftChildIndex + 1;
 
             if ( (rightChildIndex <= lastIndex) &&
                 heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
             {
+                counter++; //90
                 largerChildIndex = rightChildIndex;
             } // end if
 
             if (orphan.compareTo(heap[largerChildIndex]) < 0)
             {
+                //counter++; //146
                 heap[rootIndex] = heap[largerChildIndex];
                 rootIndex = largerChildIndex;
                 leftChildIndex = 2 * rootIndex;
             }
             else
-                done = true;
+                counter++;
+                System.out.println("else: "+counter);
+                done = true;           
         } // end while
         heap[rootIndex] = orphan;
     } // end reheap
@@ -189,6 +192,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
         int leftChildIndex = 2 * rootIndex + 1;
         while (!done && (leftChildIndex <= lastIndex))
         {
+            //counter++;
             int largerChildIndex = leftChildIndex;
             int rightChildIndex = leftChildIndex + 1;
             if ( (rightChildIndex <= lastIndex) &&
@@ -204,8 +208,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
                 leftChildIndex = 2 * rootIndex + 1;
             }
             else
-                done = true;
-            counter++;
+                done = true;       
         } // end while
         heap[rootIndex] = orphan;
     } // end reheap
@@ -271,5 +274,15 @@ public final class MaxHeap<T extends Comparable<? super T>>
         Files.write(Paths.get(filename), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
         }
     }
+
+    public void optimalWriteHeap(String filename, int numofoutput) throws IOException{
+        T[] opt =  (T[]) new Integer[numofoutput];
+         for (int i = 0; i<opt.length; i++) {
+            opt[i]=heap[i+1];
+            String convert = opt[i].toString()+",";
+            Files.write(Paths.get(filename), (convert).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+        }
+    }
     
+
 } // end MaxHeap
