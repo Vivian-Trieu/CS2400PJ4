@@ -20,7 +20,6 @@ public static void main(String[] args) throws IOException {
     
     Files.write(Paths.get("output.txt"),
     ( System.lineSeparator()+"Number of swaps in the heap creation: "+heap.getSwap()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
-   // System.out.println("Swap: "+heap.getSwap());
 
     for (int i = 0; i < 10; i++)
         heap.removeMax();
@@ -28,23 +27,57 @@ public static void main(String[] args) throws IOException {
     heap.writeHeap("output.txt", 10);
 
 
-
     Files.write(Paths.get("output.txt"),(System.lineSeparator()+System.lineSeparator()+"Heap built using optimal method: ").getBytes(), StandardOpenOption.APPEND);
     Integer[] dint = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).toArray(Integer[]::new);
     
     MaxHeap<Integer> opt = new MaxHeap<>(dint);
-    //heap.heapSort(dint, 10);
-    int swap =opt.getSwap();
-
     opt.optimalWriteHeap("output.txt", 10);
     Files.write(Paths.get("output.txt"),
-    ( System.lineSeparator()+"Number of swaps in the heap creation: "+swap).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    ( System.lineSeparator()+"Number of swaps in the heap creation: "+opt.getSwap()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
    
     for (int i = 0; i < 10; i++)
      opt.removeMax();
     Files.write(Paths.get("output.txt"),
     (System.lineSeparator()+"Heap after 10 removals: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);    
     opt.optimalWriteHeap("output.txt", 10);
+
+
+    Files.write(Paths.get("output.txt"), (System.lineSeparator()+"====================================================================="+System.lineSeparator())
+    .getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
+
+    MaxHeap<Integer> Rheap = new MaxHeap<>();
+    
+    List<Integer> Rranint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).collect(Collectors.toList());
+    Rranint.forEach((n)->Rheap.add(n));
+
+    Files.write(Paths.get("output.txt"),
+    ("====================================================================="
+    + System.lineSeparator()+"Heap built using sequential insertions: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    Rheap.writeHeap("output.txt", 10);
+    
+    Files.write(Paths.get("output.txt"),
+    ( System.lineSeparator()+"Number of swaps in the heap creation: "+Rheap.getSwap()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
+    for (int i = 0; i < 10; i++)
+        Rheap.removeMax();
+    Files.write(Paths.get("output.txt"),(System.lineSeparator()+"Heap after 10 removals: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+    Rheap.writeHeap("output.txt", 10);
+
+
+    Files.write(Paths.get("output.txt"),(System.lineSeparator()+System.lineSeparator()+"Heap built using optimal method: ").getBytes(), StandardOpenOption.APPEND);
+    Integer[] Rdint = Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).toArray(Integer[]::new);
+    
+    MaxHeap<Integer> Ropt = new MaxHeap<>(Rdint);
+    Ropt.optimalWriteHeap("output.txt", 10);
+    Files.write(Paths.get("output.txt"),
+    ( System.lineSeparator()+"Number of swaps in the heap creation: "+Ropt.getSwap()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+   
+    for (int i = 0; i < 10; i++)
+     Ropt.removeMax();
+    Files.write(Paths.get("output.txt"),
+    (System.lineSeparator()+"Heap after 10 removals: ").getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);    
+    Ropt.optimalWriteHeap("output.txt", 10);
 
 
     Files.write(Paths.get("output.txt"), (System.lineSeparator()+"====================================================================="+System.lineSeparator())

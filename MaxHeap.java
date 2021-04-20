@@ -18,7 +18,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
     private boolean integrityOK = false;
 	private static final int DEFAULT_CAPACITY = 25;
 	private static final int MAX_CAPACITY = 10000;
-    private static int counter=0;
+    private int counter=0;
    
     public MaxHeap()
     {
@@ -131,14 +131,12 @@ public final class MaxHeap<T extends Comparable<? super T>>
         // Create first heap
         for (int rootIndex = n / 2 - 1; rootIndex >= 0; rootIndex--)
             reheap(array, rootIndex, n - 1);
-            //counter++;
         swap(array, 0, n - 1);
 
         for (int lastIndex = n - 2; lastIndex > 0; lastIndex--)
         {
             reheap(array, 0, lastIndex);
             swap(array, 0, lastIndex);
-            //counter++;
         } // end for
     } // end heapSort
 
@@ -158,27 +156,23 @@ public final class MaxHeap<T extends Comparable<? super T>>
         int leftChildIndex = 2 * rootIndex;
         while (!done && (leftChildIndex <= lastIndex) )
         {
-            //counter++; //151
             int largerChildIndex = leftChildIndex; // Assume larger
             int rightChildIndex = leftChildIndex + 1;
 
             if ( (rightChildIndex <= lastIndex) &&
                 heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
             {
-                counter++; //90
                 largerChildIndex = rightChildIndex;
             } // end if
 
             if (orphan.compareTo(heap[largerChildIndex]) < 0)
             {
-                //counter++; //146
+                counter++; //the one?
                 heap[rootIndex] = heap[largerChildIndex];
                 rootIndex = largerChildIndex;
                 leftChildIndex = 2 * rootIndex;
             }
             else
-                counter++;
-                System.out.println("else: "+counter);
                 done = true;           
         } // end while
         heap[rootIndex] = orphan;
@@ -192,7 +186,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
         int leftChildIndex = 2 * rootIndex + 1;
         while (!done && (leftChildIndex <= lastIndex))
         {
-            //counter++;
             int largerChildIndex = leftChildIndex;
             int rightChildIndex = leftChildIndex + 1;
             if ( (rightChildIndex <= lastIndex) &&
