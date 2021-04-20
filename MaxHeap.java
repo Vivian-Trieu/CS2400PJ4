@@ -9,8 +9,7 @@ import java.util.Arrays;
     @author Timothy M. Henry
     @version 5.0
 */
-import java.util.concurrent.PriorityBlockingQueue;
-public final class MaxHeap<T extends Comparable<? super T>>
+public class MaxHeap<T extends Comparable<? super T>>
             implements MaxHeapInterface<T>
 {
     private T[] heap;      // Array of heap entries; ignore heap[0]

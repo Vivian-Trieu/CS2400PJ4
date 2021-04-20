@@ -3,11 +3,12 @@ import java.nio.file.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class redriver {
+public class redriver extends MaxHeap<String> {
 public static void main(String[] args) throws IOException {
     // Simpliest, but not the "correct" way to solve the question.
     // Files.lines(Paths.get("data_random.txt")).map(Integer::parseInt).sorted().forEach(System.out::println);
 
+    // max heap of sorted data using sequential insertions
     MaxHeap<Integer> heap = new MaxHeap<>();
     
     List<Integer> ranint = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).collect(Collectors.toList());
@@ -27,6 +28,8 @@ public static void main(String[] args) throws IOException {
     heap.writeHeap("output.txt", 10);
 
 
+    // max heap of sorted data using optimal method
+    MaxHeap<Integer> optimal = new MaxHeap<>(100);
     Files.write(Paths.get("output.txt"),(System.lineSeparator()+System.lineSeparator()+"Heap built using optimal method: ").getBytes(), StandardOpenOption.APPEND);
     Integer[] dint = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).toArray(Integer[]::new);
     
@@ -82,7 +85,6 @@ public static void main(String[] args) throws IOException {
 
     Files.write(Paths.get("output.txt"), (System.lineSeparator()+"====================================================================="+System.lineSeparator())
     .getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
-
     }
 }
 
