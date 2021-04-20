@@ -4,7 +4,7 @@
 Used Java interface and generic data type
 
 redriver.java for client side program
-*use java.nio.file.* to read file 
+  * use Java interface and generic data typeuse java.nio.file to read file 
 ---
 
 Maxheap.java is where all the code at
