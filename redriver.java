@@ -29,7 +29,6 @@ public static void main(String[] args) throws IOException {
 
 
     // max heap of sorted data using optimal method
-    MaxHeap<Integer> optimal = new MaxHeap<>(100);
     Files.write(Paths.get("output.txt"),(System.lineSeparator()+System.lineSeparator()+"Heap built using optimal method: ").getBytes(), StandardOpenOption.APPEND);
     Integer[] dint = Files.lines(Paths.get("data_sorted.txt")).map(Integer::parseInt).toArray(Integer[]::new);
     
